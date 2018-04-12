@@ -3,6 +3,7 @@ package com.example.customqrscan;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -15,36 +16,78 @@ import org.json.JSONObject;
  */
 
 public class Page2Activity extends AppCompatActivity {
-    private TextView QrString;
-    private TextView JsonString;
-    private  JsonItem a;
+    private TextView Voucher;
+    private TextView drID;
+    private TextView Location;
+    private TextView Quotax;
+    private JsonItem a;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page2);
-        QrString = findViewById(R.id.QrString);
-        JsonString = findViewById(R.id.JsonString);
+        Voucher = findViewById(R.id.QrString);
+        drID = findViewById(R.id.JsonString);
+        Location = findViewById(R.id.Location);
+        Quotax = findViewById(R.id.quota);
+
+        Quotax.setText("222");
 
 
-        //Json Parsing(Decode)
+        //Json Parsing(Decode) String -> Json
+
         JSONObject mainObject = null;
         try {
             mainObject = new JSONObject(GlobalConstants.QRString);
-            String  uniName = mainObject.getString("name");//child
-            String uniURL = mainObject.getString("url");//child
-            a = new JsonItem(uniName,uniURL);
-            QrString.setText("Decode: \n"+"Name is : "+a.getName()+"\n"+"Url is : "+a.getUrl());
+            String voucher = mainObject.getString("voucher");
+            String DrID = mainObject.getString("DrID");
+            String location = mainObject.getString("location");
+            String quota = mainObject.getString("quota");
+
+            JsonItem2 a = new JsonItem2(voucher,DrID,location,quota);
+            Voucher.setText("醫療單據編號 : "+a.getVoucher());
+            drID.setText("醫生編號 : "+a.getDrID());
+            Location.setText(a.getLocation());
+            Quotax.setText("quota: "+a.getQuota());
+
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Gson gson = new Gson();
-        String jsonSring = gson.toJson(a);
-        JsonString.setText(jsonSring);
+
+
+//        try {
+//
+//            mainObject = new JSONObject(GlobalConstants.QRString);
+//            Log.e("page2aftersetting","SS");Log.e("page2aftertry","SS");
+//            String   voucher = mainObject.getString(" voucher");//child  <--!!!! Bug one space before voucher...call crash below
+//            String DrID = mainObject.getString("DrID");//child
+//            String location = mainObject.getString("location");
+//            String quota = mainObject.getString("quota");
+//           // a = new JsonItem( voucher,DrID,location,quota);
+//            Voucher.setText("醫療單據編號 : "+voucher);
+//            drID .setText("醫生編號 : "+DrID);
+//            Location.setText(location);
+//            //Quota.setText("quota: "+a.getQuota());
+//            Quotax.setText(quota);
+//            Log.e("page2aftersettingF","SS");
+//
+//} catch (JSONException e) {
+//        e.printStackTrace();
+//        }
+//
+//        //Json Parsing(Encode) Json -> String
+//        Gson gson = new Gson();
+//        String jsonSring = gson.toJson(a);
+//
+//
+//
+//
 
 
 
     }
+
 }
 
 

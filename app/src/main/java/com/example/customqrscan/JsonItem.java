@@ -6,33 +6,47 @@ package com.example.customqrscan;
 
 
 public class JsonItem {
-    private String name;
-    private String url;
+    private String voucher;
+    private String DrID;
+    private String location;
+    private String quota;
 
-    public JsonItem(String name, String url) {
-        this.name = name;
-        this.url = url;
+    public JsonItem(String voucher, String DrID,String location,String quota) {
+        this.voucher = voucher;
+        this.DrID = DrID;
+        this.location = location;
+        this.quota= quota;
     }
 
-    public String getName() {
-        return name;
+    public String getVoucher() {
+        return voucher;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setVoucher(String voucher) {
+        this.voucher = voucher;
     }
 
-    public String getUrl() {
-        return url;
+    public String getDrID() {
+        return DrID;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setDrID(String drID) {
+        DrID = drID;
     }
 
+    public String getLocation() {
+        return location;
+    }
 
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
+    public String getQuota() {
+        return quota;
+    }
 
-
-
+    public void setQuota(String quota) {
+        this.quota = quota;
+    }
 }

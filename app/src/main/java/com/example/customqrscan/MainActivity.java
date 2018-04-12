@@ -20,11 +20,20 @@ public class MainActivity extends AppCompatActivity {
     private static final int ZXING_CAMERA_PERMISSION2 = 2;
     private Class<?> mClass;
 
+    Button GenQRcodeJsonFormat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        GenQRcodeJsonFormat = findViewById(R.id.GenQRcodeJsonFormat);
+        GenQRcodeJsonFormat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,genqrcode.class));
+            }
+        });
 
 
 

@@ -5,43 +5,39 @@
     android:orientation="vertical">
 
     <TextView
+        android:text="The Qrcode with json data format"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:text="voucher=LXXXXXX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Page2"
-        android:textSize="30sp" />
-
+        android:layout_marginTop="16dp"/>
 
     <TextView
-        android:id="@+id/QrString"
+        android:text="DrID=G999"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="醫療單據編號"
-        android:textSize="30sp"
-        />
+        android:layout_marginTop="16dp"/>
 
     <TextView
-        android:id="@+id/JsonString"
+        android:text="location=聯合醫務(中環)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="醫生編號"
-        android:textSize="30sp"
-        />
-    <TextView
-        android:id="@+id/Location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="聯合醫務(中環)"
-        android:textSize="30sp"
-        />
+        android:layout_marginTop="16dp"/>
 
     <TextView
-        android:id="@+id/quota"
+        android:text="quota=1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quota"
-        android:textSize="30sp"
-        />
+        android:layout_marginTop="16dp"/>
 
 
+    <ImageView
+        android:id="@+id/iv_qrcode"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="18dp"/>
 
 </LinearLayout>

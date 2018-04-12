@@ -27,6 +27,13 @@
         android:layout_height="wrap_content"
         android:onClick="launchScalingScannerFragment"/>
 
+    <Button
+        android:id="@+id/GenQRcodeJsonFormat"
+        android:text="GenQRcodeJsonFormat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
     <LinearLayout
         android:id="@+id/procontainer"
         android:layout_width="match_parent"
