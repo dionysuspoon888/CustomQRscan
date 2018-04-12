@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -39,20 +40,23 @@ public class Page2Activity extends AppCompatActivity {
         JSONObject mainObject = null;
         try {
             mainObject = new JSONObject(GlobalConstants.QRString);
+            //String voucher = mainObject.getString("voucher");
             String voucher = mainObject.getString("voucher");
             String DrID = mainObject.getString("DrID");
             String location = mainObject.getString("location");
             String quota = mainObject.getString("quota");
 
             JsonItem2 a = new JsonItem2(voucher,DrID,location,quota);
+
             Voucher.setText("醫療單據編號 : "+a.getVoucher());
             drID.setText("醫生編號 : "+a.getDrID());
             Location.setText(a.getLocation());
             Quotax.setText("quota: "+a.getQuota());
 
-
         } catch (JSONException e) {
             e.printStackTrace();
+            Toast.makeText(this,"error: "+e,Toast.LENGTH_LONG).show();
+
         }
 
 
@@ -60,7 +64,10 @@ public class Page2Activity extends AppCompatActivity {
 //
 //            mainObject = new JSONObject(GlobalConstants.QRString);
 //            Log.e("page2aftersetting","SS");Log.e("page2aftertry","SS");
+
 //            String   voucher = mainObject.getString(" voucher");//child  <--!!!! Bug one space before voucher...call crash below
+//           **** could check by JSONException e. As it is qrScan(not emulator) better to use Toast.makeText,e to show it
+//           **** The above is running fine -> if encounter error Go to throw and the below is skipped
 //            String DrID = mainObject.getString("DrID");//child
 //            String location = mainObject.getString("location");
 //            String quota = mainObject.getString("quota");

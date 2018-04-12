@@ -35,7 +35,7 @@ public class genqrcode extends Activity {
         iv_qrcode = findViewById(R.id.iv_qrcode);
         //Json Parsing(Encode) Json -> String
         Gson gson = new Gson();
-        JsonItem a = new JsonItem("LXXXXXX","G999","聯合醫務(中環)","5");
+        JsonItem a = new JsonItem("LXXXXXX","G999","聯合醫務(中環)","1");
         String jsonSring = gson.toJson(a);
 
         JsonItem2 b = new JsonItem2("LXXXXXX","G999","聯合醫務(中環)","3");
